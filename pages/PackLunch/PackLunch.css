@@ -1,0 +1,56 @@
+.dishes {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+}
+
+.dish {
+  display: flex;
+  flex-direction: column;
+  padding: 30px 40px;
+  border-radius: 35px;
+  cursor: pointer;
+  filter: drop-shadow(17px 19px 24px rgba(0, 0, 0, 0.13));
+  background: white;
+  font-size: 20px;
+  transition: .1s linear border;
+}
+
+.dish:hover {
+  border: 2px solid tomato;
+}
+
+.dish:hover .dish__add {
+  background: lightgrey;
+}
+
+.dish__img {
+  border-radius: 35px;
+  margin-bottom: 10px;
+}
+
+.dish__name {
+  margin-bottom: 20px;
+}
+
+.dish__amount {
+  color: grey;
+  margin-bottom: 10px;
+  margin-top: auto;
+}
+
+.dish__add {
+  background: #f1eee9;
+  border: none;
+  padding: 10px 30px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  transition: .1s linear background;
+}
+
+@media (max-width: 600px) {
+  .title {
+    text-align: center;
+  }
+}
