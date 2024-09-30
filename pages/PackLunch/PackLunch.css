@@ -49,8 +49,18 @@
   transition: .1s linear background;
 }
 
+@media (max-width: 800px) { 
+  .dishes {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
 @media (max-width: 600px) {
   .title {
     text-align: center;
+  }
+
+  .dishes {
+    grid-template-columns: 1fr;
   }
 }
