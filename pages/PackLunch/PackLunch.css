@@ -12,7 +12,7 @@
   cursor: pointer;
   filter: drop-shadow(17px 19px 24px rgba(0, 0, 0, 0.13));
   background: white;
-  font-size: 20px;
+  font-size: var(--font-size-m);
   transition: .1s linear border;
 }
 
@@ -45,7 +45,7 @@
   padding: 10px 30px;
   border-radius: 10px;
   cursor: pointer;
-  font-size: 20px;
+  font-size: var(--font-size-m);
   transition: .1s linear background;
 }
 
@@ -63,4 +63,95 @@
   .dishes {
     grid-template-columns: 1fr;
   }
+}
+
+.form-section__title {
+  text-align: center;
+}
+
+.form {
+  display: flex;
+  justify-content: space-around;
+}
+
+.form__column {
+  display: flex;
+  flex-direction: column;
+}
+
+.form__column:first-child {
+  margin-right: 20px;
+}
+
+.form__title {
+  margin-bottom: 25px;
+  font-size: var(--font-size-m);
+}
+
+.form__input-block {
+  display: flex;
+  flex-direction: column;
+  font-size: var(--font-size-m);
+  margin-bottom: 15px;
+}
+
+.form__input-block_margin {
+  margin-bottom: 15px;
+}
+
+.form__input-block > input, .form__input-block > select {
+  height: 40px;
+}
+
+.form__input-block > label {
+  margin-bottom: 7px;
+  font-size: var(--font-size-m);
+}
+
+.form__input-block > span {
+  margin-top: 7px;
+  font-size: var(--font-size-s);
+  font-style: italic;
+}
+
+.form__radio-block {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.form__radio-block > input {
+  margin-right: 5px;
+}
+
+.time-delivery {
+  border: 0;
+}
+
+.time-delivery__title {
+  margin-bottom: 5px;
+}
+
+.time-delivery__delivery-time {
+  margin-top: 10px;
+}
+
+.form__comment {
+  min-height: 100px;
+}
+
+.form__btns {
+  display: flex;
+  justify-content: center;
+}
+
+.form__btn {
+  background: none;
+  padding: 5px 30px;
+  border: 1px solid black;
+  font-size: var(--font-size-m);
+}
+
+.form__btn:first-child {
+  margin-right: 10px;
 }

@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../index.css" >
     <link rel="stylesheet" href="./PackLunch.css" >
+    <script src="./PackLunch.js" defer></script>
     <title>Food Construct</title>
 </head>
 <body>
@@ -101,6 +102,87 @@
                         <button class="dish__add">Добавить</button>
                     </div>
                 </div>
+            </section>
+            <section class="section">
+                <h2 class="title form-section__title">Сделать заказ</h2>
+                <form action="https://httpbin.org/post" class="form" method="post" name="menu">
+                    <div class="form__column">
+                        <h3 class="form__title">Ваш заказ</h3>
+                        <div class="form__input-block">
+                            <label for="soups">Суп</label>
+                            <select id="soups" required name="soups">
+                                <option value="" selected disabled>--Выберите суп--</option>
+                                <option value="gazpacho">Гаспачо</option>
+                                <option value="mushroom_soup">Грибной суп-пюре</option>
+                                <option value="norwegian_soup">Норвежский суп</option>
+                            </select>
+                        </div>
+                        <div class="form__input-block">
+                            <label for="main_course">Главное блюдо</label>
+                            <select id="main_course" required name="main_course">
+                                <option value="" selected disabled>--Выберите главное блюдо--</option>
+                                <option value="fried_potatoes_with_mushrooms">Жареная картошка с грибами</option>
+                                <option value="lasagna">Лазанья</option>
+                                <option value="chicken_cutlets_and_mashed_potatoes">Котлеты из курицы с картофельным пюре</option>
+                            </select>
+                        </div>
+                        <div class="form__input-block">
+                            <label for="beverages">Напиток</label>
+                            <select id="beverages" required name="beverages">
+                                <option value="" selected disabled>--Выберите напиток--</option>
+                                <option value="orange_juice">Апельсиновый сок</option>
+                                <option value="apple_juice">Яблочный сок</option>
+                                <option value="carrot_juice">Морковный сок</option>
+                            </select>
+                        </div>
+                        <div class="form__input-block">
+                            <label for="comment">Комментарии к заказу</label>
+                            <textarea id="comment" class="form__comment" name="comment"></textarea>
+                        </div>
+                    </div>
+                    <div class="form__column">
+                        <h3 class="form__title">Ваши данные</h3>
+                        <div class="form__input-block">
+                            <label for="name">Имя</label>
+                            <input type="text" id="name" required name="name">
+                        </div>
+                        <div class="form__input-block">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" required name="email">
+                        </div>
+                        <div class="form__radio-block form__input-block_margin">
+                            <input type="checkbox" id="newsletter" checked name="newsletter">
+                            <label for="newsletter">Получать информацию о скидках и акциях</label>
+                        </div>
+                        <div class="form__input-block">
+                            <label for="phone">Номер телефона</label>
+                            <input type="tel" id="phone" required name="phone">
+                        </div>
+                        <div class="form__input-block">
+                            <label for="address">Адрес доставки</label>
+                            <input type="text" id="address" required name="address">
+                            <span>Доставка осуществляется только по Москве</span>
+                        </div>
+                        <fieldset class="time-delivery form__input-block">
+                            <legend class="time-delivery__title">Время доставки:</legend>
+                            <div class="form__radio-block">
+                                <input type="radio" id="as_soon_as_possible" name="select_delivery_time" checked value="as_soon_as_possible">
+                                <label for="as_soon_as_possible">Как можно скорее</label>
+                            </div>
+                            <div class="form__radio-block">
+                                <input type="radio" id="by_specified_time" name="select_delivery_time" value="by_specified_time">
+                                <label for="by_specified_time">К указанному времени</label>
+                            </div>
+                            <label for="delivery_time" class="time-delivery__delivery-time">Укажите время доставки</label>
+                            <input type="time" id="delivery_time" min="07:00" max="23:00" step="300" name="delivery_time">
+                            <span>Доступное время доставки с 7:00 до 23:00</span>
+                        </fieldset>
+                        <div class="form__btns">
+                            <button type="reset" class="form__btn btn-reset">Сбросить</button>
+                            <button type="submit" class="form__btn btn-reset">Отправить</button>
+                        </div>
+                    </div>
+                </form>
             </section>
         </div>
     </main>
