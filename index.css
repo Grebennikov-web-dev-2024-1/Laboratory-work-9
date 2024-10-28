@@ -19,6 +19,13 @@
   cursor: pointer;
 }
 
+.hide {
+  visibility: hidden;
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+
 a {
   text-decoration: none;
   color: inherit;

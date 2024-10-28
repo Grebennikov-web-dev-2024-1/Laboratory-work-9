@@ -20,6 +20,10 @@
   border: 2px solid tomato;
 }
 
+.dish_selected {
+  border: 2px solid tomato;
+}
+
 .dish:hover .dish__add {
   background: lightgrey;
 }
@@ -87,6 +91,25 @@
   margin-bottom: 25px;
   font-size: var(--font-size-m);
 }
+
+.form__basket-menu-items {
+  margin-bottom: 15px;
+}
+
+.basket-menu-item__message {
+  font-size: var(--font-size-m);
+  font-weight: 500;
+}
+
+.basket-menu-item {
+  margin-bottom: 15px;
+  font-size: var(--font-size-m);
+}
+
+.basket-menu-item__title {
+  font-weight: 500;
+}
+
 
 .form__input-block {
   display: flex;
