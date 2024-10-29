@@ -3,9 +3,13 @@
   "version": "1.0.0",
   "main": "index.html",
   "scripts": {
-    "htmlhint": "npx htmlhint \"**/*.html\""
+    "htmlhint": "npx htmlhint \"**/*.html\"",
+    "eslint": "npx eslint \"**/*.js\""
   },
   "devDependencies": {
+    "@eslint/js": "^9.13.0",
+    "eslint": "^9.13.0",
+    "globals": "^15.11.0",
     "htmlhint": "^1.1.4"
   }
 }
