@@ -29,14 +29,46 @@
         <div class="container">
             <section class="section soups-section">
                 <h2 class="title">Выберите суп</h2>
+                <div class="filter">
+                    <button class="filter__item btn-reset" data-kind="fish">рыбный</button>
+                    <button class="filter__item btn-reset" data-kind="meat">мясной</button>
+                    <button class="filter__item btn-reset" data-kind="veg">вегатерианский</button>
+                </div>
                 <div class="dishes"></div>
             </section>
             <section class="section main-course-section">
                 <h2 class="title">Выберите главное блюдо</h2>
+                <div class="filter">
+                    <button class="filter__item btn-reset" data-kind="fish">рыбный</button>
+                    <button class="filter__item btn-reset" data-kind="meat">мясной</button>
+                    <button class="filter__item btn-reset" data-kind="veg">вегатерианский</button>
+                </div>
+                <div class="dishes"></div>
+            </section>
+            <section class="section salads-starters-section">
+                <h2 class="title">Выберите салат или стартер</h2>
+                <div class="filter">
+                    <button class="filter__item btn-reset" data-kind="fish">рыбный</button>
+                    <button class="filter__item btn-reset" data-kind="meat">мясной</button>
+                    <button class="filter__item btn-reset" data-kind="veg">вегатерианский</button>
+                </div>
                 <div class="dishes"></div>
             </section>
             <section class="section beverages-section">
                 <h2 class="title">Выберите напиток</h2>
+                <div class="filter">
+                    <button class="filter__item btn-reset" data-kind="cold">холодный</button>
+                    <button class="filter__item btn-reset" data-kind="hot">горячий</button>
+                </div>
+                <div class="dishes"></div>
+            </section>
+            <section class="section desserts-section">
+                <h2 class="title">Выберите десерт</h2>
+                <div class="filter">
+                    <button class="filter__item btn-reset" data-kind="small">маленькая порция</button>
+                    <button class="filter__item btn-reset" data-kind="medium">редняя порция</button>
+                    <button class="filter__item btn-reset" data-kind="big">большая порция</button>
+                </div>
                 <div class="dishes"></div>
             </section>
             <section class="section">
@@ -49,7 +81,9 @@
                         </div>
                         <input type="text" id="soups" name="soups" class="hide" required>
                         <input type="text" id="main-course" name="main-course" class="hide" required>
+                        <input type="text" id="salads-starters" name="salads-starters" class="hide" required>
                         <input type="text" id="beverages" name="beverages" class="hide" required>
+                        <input type="text" id="desserts" name="desserts" class="hide" required>
                         <div class="form__input-block">
                             <label for="comment">Комментарии к заказу</label>
                             <textarea id="comment" class="form__comment" name="comment"></textarea>
@@ -125,8 +159,16 @@
             <p class="basket-menu-item__title">Главное блюдо</p>
             <p class="basket-menu-item__content">Яблочный сок</p>
         </div>
+        <div class="basket-menu-item" id="basket-menu-item-salads-starters">
+            <p class="basket-menu-item__title">Главное блюдо</p>
+            <p class="basket-menu-item__content">Яблочный сок</p>
+        </div>
         <div class="basket-menu-item" id="basket-menu-item-beverages">
             <p class="basket-menu-item__title">Напиток</p>
+            <p class="basket-menu-item__content"></p>
+        </div>
+        <div class="basket-menu-item" id="basket-menu-item-desserts">
+            <p class="basket-menu-item__title">Стоимость заказа</p>
             <p class="basket-menu-item__content"></p>
         </div>
         <div class="basket-menu-item" id="basket-menu-item-sum">

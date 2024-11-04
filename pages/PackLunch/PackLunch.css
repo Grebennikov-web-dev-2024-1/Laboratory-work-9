@@ -178,3 +178,23 @@
 .form__btn:first-child {
   margin-right: 10px;
 }
+
+.filter {
+  display: flex;
+  margin-bottom: 25px;
+}
+
+.filter__item {
+  color: green;
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-size: var(--font-size-m);
+}
+
+.filter__item:not(:last-child) {
+  margin-right: 25px;
+}
+
+.filter__item_selected {
+  background: rgb(221, 255, 221);
+}
