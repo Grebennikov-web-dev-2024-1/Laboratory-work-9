@@ -1,4 +1,4 @@
-import { menu } from './menuList.js';
+let menu = [];
 
 const selectedMenuItems = {
     "soups": null,
@@ -226,7 +226,7 @@ function createComboItemContent(list) {
     return children;
 }
 
-function createCombo(combo) {
+function createCombo() {
     const comboNode = document.querySelector('.combo');
     for (const {name, list, note} of combo) {
         const comboItemEl = document.createElement('div');
@@ -283,7 +283,6 @@ document.querySelector('.main').addEventListener('click', (e) => {
 
 document.querySelector('.form').addEventListener('submit', (e) => {
     const alertMessage = getAlertMessage();
-    console.log(alertMessage);
     if (!alertMessage) {
         return;
     }
@@ -294,5 +293,32 @@ document.querySelector('.form').addEventListener('submit', (e) => {
     alertEl.classList.remove('hide');
 });
 
-displayCards();
-createCombo(combo);
+const API = 'https://edu.std-900.ist.mospolytech.ru/labs/api/dishes';
+
+function normalizeDishes(arr) {
+    return arr.map((item) => {
+        if (item.category == "salad") {
+            item.category = 'salads-starters';
+        }
+        if (item.category == 'drink') {
+            item.category = 'beverages';
+        }
+        if (item.category == 'dessert') {
+            item.category = 'desserts';
+        }
+        if (item.category == "soup") {
+            item.category = 'soups';
+        }
+        return item;
+    });
+}
+
+async function loadDishes() {
+    const res = await fetch(API);
+    const json = await res.json();
+    menu = normalizeDishes(json);
+    displayCards();
+    createCombo();
+}
+
+loadDishes();
