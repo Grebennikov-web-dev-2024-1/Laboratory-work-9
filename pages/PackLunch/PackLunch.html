@@ -27,6 +27,10 @@
     </header>
     <main class="main">
         <div class="container">
+            <div class="section combo-section">
+                <h2 class="title combo__title">Доступные для заказа комбо</h2>
+                <div class="combo"></div>
+            </div>
             <section class="section soups-section">
                 <h2 class="title">Выберите суп</h2>
                 <div class="filter">
@@ -79,11 +83,11 @@
                         <div class="form__basket-menu-items">
                             <p class="basket-menu-item__message">Ничего не выбрано</p>
                         </div>
-                        <input type="text" id="soups" name="soups" class="hide" required>
-                        <input type="text" id="main-course" name="main-course" class="hide" required>
-                        <input type="text" id="salads-starters" name="salads-starters" class="hide" required>
-                        <input type="text" id="beverages" name="beverages" class="hide" required>
-                        <input type="text" id="desserts" name="desserts" class="hide" required>
+                        <input type="text" id="soups" name="soups" class="hide">
+                        <input type="text" id="main-course" name="main-course" class="hide">
+                        <input type="text" id="salads-starters" name="salads-starters" class="hide">
+                        <input type="text" id="beverages" name="beverages" class="hide">
+                        <input type="text" id="desserts" name="desserts" class="hide">
                         <div class="form__input-block">
                             <label for="comment">Комментарии к заказу</label>
                             <textarea id="comment" class="form__comment" name="comment"></textarea>
@@ -133,6 +137,10 @@
                     </div>
                 </form>
             </section>
+        </div>
+        <div class="alert hide">
+            <div class="alert__text"></div>
+            <button class="alert__btn btn-reset">Окей 👌</button>
         </div>
     </main>
     <footer class="footer">

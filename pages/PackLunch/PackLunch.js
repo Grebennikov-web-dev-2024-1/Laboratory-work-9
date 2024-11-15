@@ -8,3 +8,8 @@ form.addEventListener('change', (e) => {
         deliveryTimeInput.required = false;
     }
 });
+
+
+document.querySelector('.alert__btn').addEventListener('click', () => {
+    document.querySelector('.alert').classList.add('hide');
+});

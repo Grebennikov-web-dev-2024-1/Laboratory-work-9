@@ -165,9 +165,134 @@ const handleSelectingFilter = (e) => {
     }
 };
 
+
+const comboItemName = {
+    soup: 'Суп',
+    main: 'Главное блюдо',
+    salad: 'Салат',
+    drink: 'Напиток',
+    desert: 'Десерт'
+};
+
+const comboItemImg = {
+    soup: '../../img/icons/soup.png',
+    main: '../../img/icons/main.png',
+    salad: '../../img/icons/salad.png',
+    drink: '../../img/icons/drink.png',
+    desert: '../../img/icons/desert.png'
+};
+
+const combo = [
+    {
+        name: 'complext',
+        list: ['soup', 'main', 'salad', 'drink']
+    },
+    {
+        name: 'soup-main',
+        list: ['soup', 'main', 'drink']
+    },
+    {
+        name: 'soup-salad',
+        list: ['soup', 'salad', 'drink']
+    },
+    {
+        name: 'main-salad',
+        list: ['main', 'salad', 'drink']
+    },
+    {
+        name: 'main',
+        list: ['main', 'drink']
+    },
+    {
+        name: 'desert',
+        list: ['desert'],
+        note: '(можно добавить к любому заказу)'
+    }
+];
+
+function createComboIcon(name, img) {
+    return `<div class="icon">
+        <img class="icon__img" src="${img}" alt="${name}">
+        <p class="icon__text">${name}</p>
+    </div>`;
+}
+
+function createComboItemContent(list) {
+    let children = '<div class="combo__content">';
+    for (const item of list) {
+        children += createComboIcon(comboItemName[item], comboItemImg[item]);
+    }
+    children += '</div>';
+    return children;
+}
+
+function createCombo(combo) {
+    const comboNode = document.querySelector('.combo');
+    for (const {name, list, note} of combo) {
+        const comboItemEl = document.createElement('div');
+        comboItemEl.classList.add('combo__item');
+        comboItemEl.dataset.name = name;
+        let children = createComboItemContent(list);
+        
+        if (note) {
+            children += `<div class="icon__note">${note}</div>`;
+        }
+        comboItemEl.innerHTML = children;
+        comboNode.append(comboItemEl);
+    } 
+}
+
+function getAlertMessage() {
+    const soupValue = document.querySelector('#soups').value;
+    const mainCourseValue = document.querySelector('#main-course').value;
+    const saladStarterValue = document.querySelector('#salads-starters').value;
+    const beverageValue = document.querySelector('#beverages').value;
+    const dessertValue = document.querySelector('#desserts').value;
+
+    if (
+        !soupValue
+        && !mainCourseValue 
+        && !saladStarterValue
+        && !beverageValue
+        && !dessertValue
+    ) {
+        return 'Ничего не выбрано. Выберите блюда для заказа';
+    }
+
+    if (!beverageValue) {
+        return 'Выберите напиток';
+    }
+
+    if ((beverageValue || dessertValue) && !mainCourseValue) {
+        return 'Выберите главное блюдо';
+    }
+
+    if (saladStarterValue && (!soupValue || !mainCourseValue)) {
+        return 'Выберите суп или главное блюдо';
+    }
+
+    if (soupValue && (!mainCourseValue || !saladStarterValue)) {
+        return 'Выберите главное блюдо/салат/стартер';
+    }
+}
+
 document.querySelector('.main').addEventListener('click', (e) => {
     handleSelectingMenuItem(e);
     handleSelectingFilter(e);
 });
 
+document.querySelector('.form').addEventListener('submit', (e) => {
+    const alertMessage = getAlertMessage();
+    console.log(alertMessage);
+    if (!alertMessage) {
+        return;
+    }
+
+    e.preventDefault();
+    const alertEl = document.querySelector('.alert');
+    alertEl.firstChild.textContent = alertMessage;
+    alertEl.classList.remove('hide');
+});
+
 displayCards();
+createCombo(combo);
