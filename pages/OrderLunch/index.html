@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../index.css" >
+    <link rel="stylesheet" href="./OrderLunch.css" >
+    <script type="module" src="./OrderLunch.js" defer></script>
+    <title>Food Construct</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="header__title">Food Construct</h1>
+            <nav class="nav">
+                <a class="nav__item" href="../../index.html" >О нас</a>
+                <a class="nav__item" href="../PackLunch/index.html">Собрать ланч</a>
+                <a class="nav__item nav__item_active">Оформить заказ</a>
+                <a class="nav__item">Заказы</a>
+                <a class="nav__item" href="#footer-anchor">Контакты</a>
+            </nav>
+        </div>
+    </header>
+    <main class="main">
+        <div class="container">
+            <section class="section ">
+                <h2 class="title">Состав заказа</h2>
+                <div class="dishes"></div>
+            </section>
+            <section class="section">
+                <h2 class="title form-section__title">Сделать заказ</h2>
+                <form class="form" name="menu">
+                    <div class="form__column">
+                        <h3 class="form__title">Ваш заказ</h3>
+                        <div class="form__basket">
+                            <div class="form__basket-items"></div>
+                            <p class="form__basket-message"></p>
+                        </div>
+                        <div class="form__input-block">
+                            <label for="comment">Комментарии к заказу</label>
+                            <textarea id="comment" class="form__comment" name="comment"></textarea>
+                        </div>
+                    </div>
+                    <div class="form__column">
+                        <h3 class="form__title">Ваши данные</h3>
+                        <div class="form__input-block">
+                            <label for="name">Имя</label>
+                            <input type="text" id="name" required name="full_name">
+                        </div>
+                        <div class="form__input-block">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" required name="email">
+                        </div>
+                        <div class="form__radio-block form__input-block_margin">
+                            <input type="checkbox" id="subscribe" checked name="subscribe">
+                            <label for="subscribe">Получать информацию о скидках и акциях</label>
+                        </div>
+                        <div class="form__input-block">
+                            <label for="phone">Номер телефона</label>
+                            <input type="tel" id="phone" required name="phone">
+                        </div>
+                        <div class="form__input-block">
+                            <label for="delivery_address">Адрес доставки</label>
+                            <input type="text" id="delivery_address" required name="delivery_address">
+                            <span>Доставка осуществляется только по Москве</span>
+                        </div>
+                        <fieldset class="time-delivery form__input-block">
+                            <legend class="time-delivery__title">Время доставки:</legend>
+                            <div class="form__radio-block">
+                                <input type="radio" id="as_soon_as_possible" name="delivery_type" checked value="now">
+                                <label for="as_soon_as_possible">Как можно скорее</label>
+                            </div>
+                            <div class="form__radio-block">
+                                <input type="radio" id="by_specified_time" name="delivery_type" value="by_time">
+                                <label for="by_specified_time">К указанному времени</label>
+                            </div>
+                            <label for="delivery_time" class="time-delivery__delivery-time">Укажите время доставки</label>
+                            <input type="time" id="delivery_time" min="07:00" max="23:00" step="300" name="delivery_time">
+                            <span>Доступное время доставки с 7:00 до 23:00</span>
+                        </fieldset>
+                        <div class="form__btns">
+                            <button type="reset" class="form__btn btn-reset">Сбросить</button>
+                            <button type="submit" class="form__btn btn-reset">Отправить</button>
+                        </div>
+                    </div>
+                </form>
+            </section>
+            
+            <div class="alert hide">
+                <div class="alert__text"></div>
+                <button class="alert__btn btn-reset">Окей 👌</button>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <p class="text">Позвонить нам <a class="footer__call" id="footer-anchor" href="tel:+7000000000">+7-000-000-00-00</a></p>
+        </div>
+    </footer>
+</body>
+</html>

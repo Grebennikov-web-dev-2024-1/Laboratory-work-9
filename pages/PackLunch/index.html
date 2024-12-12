@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../index.css" >
+    <link rel="stylesheet" href="./PackLunch.css" >
+    <script type="module" src="./PackLunch.js" defer></script>
+    <title>Food Construct</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="header__title">Food Construct</h1>
+            <nav class="nav">
+                <a class="nav__item" href="../../index.html" >О нас</a>
+                <a class="nav__item nav__item_active">Собрать ланч</a>
+                <a class="nav__item" href="../OrderLunch/index.html">Оформить заказ</a>
+                <a class="nav__item">Заказы</a>
+                <a class="nav__item" href="#footer-anchor">Контакты</a>
+            </nav>
+        </div>
+    </header>
+    <main class="main">
+        <div class="container pack-lanch__container">
+            <div class="section combo-section">
+                <h2 class="title combo__title">Доступные для заказа комбо</h2>
+                <div class="combo"></div>
+            </div>
+            <section class="section soup-section">
+                <h2 class="title">Выберите суп</h2>
+                <div class="filter">
+                    <button class="filter__item btn-reset" data-kind="fish">рыбный</button>
+                    <button class="filter__item btn-reset" data-kind="meat">мясной</button>
+                    <button class="filter__item btn-reset" data-kind="veg">вегатерианский</button>
+                </div>
+                <div class="dishes"></div>
+            </section>
+            <section class="section main-course-section">
+                <h2 class="title">Выберите главное блюдо</h2>
+                <div class="filter">
+                    <button class="filter__item btn-reset" data-kind="fish">рыбный</button>
+                    <button class="filter__item btn-reset" data-kind="meat">мясной</button>
+                    <button class="filter__item btn-reset" data-kind="veg">вегатерианский</button>
+                </div>
+                <div class="dishes"></div>
+            </section>
+            <section class="section salad-section">
+                <h2 class="title">Выберите салат или стартер</h2>
+                <div class="filter">
+                    <button class="filter__item btn-reset" data-kind="fish">рыбный</button>
+                    <button class="filter__item btn-reset" data-kind="meat">мясной</button>
+                    <button class="filter__item btn-reset" data-kind="veg">вегатерианский</button>
+                </div>
+                <div class="dishes"></div>
+            </section>
+            <section class="section drink-section">
+                <h2 class="title">Выберите напиток</h2>
+                <div class="filter">
+                    <button class="filter__item btn-reset" data-kind="cold">холодный</button>
+                    <button class="filter__item btn-reset" data-kind="hot">горячий</button>
+                </div>
+                <div class="dishes"></div>
+            </section>
+            <section class="section dessert-section">
+                <h2 class="title">Выберите десерт</h2>
+                <div class="filter">
+                    <button class="filter__item btn-reset" data-kind="small">маленькая порция</button>
+                    <button class="filter__item btn-reset" data-kind="medium">редняя порция</button>
+                    <button class="filter__item btn-reset" data-kind="large">большая порция</button>
+                </div>
+                <div class="dishes"></div>
+            </section>
+            <div class="order-line hide">
+                <div class="order-line__price">ffffff</div>
+                <button class="order-line__btn btn-reset dish__btn" type="button">ff3 g</button>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <p class="text">Позвонить нам <a class="footer__call" id="footer-anchor" href="tel:+7000000000">+7-000-000-00-00</a></p>
+        </div>
+    </footer>
+</body>
+</html>
