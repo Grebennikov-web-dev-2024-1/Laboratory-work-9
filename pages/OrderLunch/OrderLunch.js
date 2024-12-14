@@ -71,7 +71,7 @@ async function handleSubmit(e) {
     }
 
     try {
-        // await createOrder(data);
+        await createOrder(data);
         clearOrder();
         e.target.reset();
         toast('Заказ успешно отправлен');

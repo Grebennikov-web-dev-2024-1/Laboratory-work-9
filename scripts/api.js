@@ -1,3 +1,5 @@
+import { formatDDMMYYYYHHMM } from "./date.js";
+
 const API_ENTRY_POINT = 'https://edu.std-900.ist.mospolytech.ru/labs/api';
 const API_ACCESS_KEY = '98d750c8-b62b-4631-801a-ea217f56febd';
 
@@ -20,6 +22,9 @@ const endpoints = {
             `${API_ENTRY_POINT}/orders/${id}?api_key=${API_ACCESS_KEY}`,
     }
 };
+
+const categories = ['soup_id', 'main_course_id',
+    'salad_id', 'dessert_id', 'drink_id'];
 
 async function fetchWrapper(url, args) {
     const method = args?.method ?? "GET";
@@ -45,12 +50,43 @@ async function getDish(id) {
     return await fetchWrapper(endpoints.dishes.getOne(id));
 }
 
+async function normalizeOrder(order) {
+    const reqDishes = [];
+    categories.forEach(category => {
+        if (order[category] === null) return;
+        reqDishes.push(getDish(order[category]));
+    });
+
+    order.created_at = new Date(order.created_at);
+
+    const dishes = await Promise.all(reqDishes);
+    order['price'] = dishes.reduce((acc, cur) => 
+        acc + (cur?.price ?? 0), 0);
+    order['dishes'] = dishes.reduce((acc, cur) => {
+        acc[cur.category] = cur;
+        return acc;
+    }, {});
+    if (order.delivery_type === 'now') {
+        order.delivery_time = 'Как можно скорее (с 07:00 до 23:00)';
+    } else {
+        order.delivery_time = order.delivery_time.slice(0, 5);
+    }
+
+    return order;
+}
+
 async function getOrders() {
-    return await fetchWrapper(endpoints.orders.get());
+    const orders = await fetchWrapper(endpoints.orders.get());
+    return await Promise.all(
+        orders.map(async order => {
+            return await normalizeOrder(order);
+        })
+    );
 }
 
 async function getOrder(id) {
-    return await fetchWrapper(endpoints.orders.getOne(id));
+    const order = await fetchWrapper(endpoints.orders.getOne(id));
+    return await normalizeOrder(order);
 }
 
 async function createOrder(order) {
@@ -61,20 +97,17 @@ async function createOrder(order) {
     return json;
 }
 
-async function updateOrder(order) {
-    const json = await fetchWrapper(endpoints.orders.update(order.id), {
-        method: 'POST',
+async function updateOrder(id, order) {
+    await fetchWrapper(endpoints.orders.update(id), {
+        method: 'PUT',
         body: order
     });
-    return json;
 }
 
-async function deleteOrder(order) {
-    const json = await fetchWrapper(endpoints.orders.update(order.id), {
-        method: 'POST',
-        body: order
+async function deleteOrder(id) {
+    await fetchWrapper(endpoints.orders.delete(id), {
+        method: 'DELETE',
     });
-    return json;
 }
 
 export {

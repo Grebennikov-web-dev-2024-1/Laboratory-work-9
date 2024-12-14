@@ -7,11 +7,11 @@ const comboItemName = {
 };
 
 const comboItemImg = {
-    soup: '../../img/icons/soup.png',
-    main: '../../img/icons/main.png',
-    salad: '../../img/icons/salad.png',
-    drink: '../../img/icons/drink.png',
-    desert: '../../img/icons/desert.png'
+    soup: '../../assets/icons/combo/soup.png',
+    main: '../../assets/icons/combo/main.png',
+    salad: '../../assets/icons/combo/salad.png',
+    drink: '../../assets/icons/combo/drink.png',
+    desert: '../../assets/icons/combo/desert.png'
 };
 
 const combo = [
