@@ -59,6 +59,3 @@ function filterDishes() {
 createCombo();
 loadDishes();
 filterDishes();
-document.querySelector('.order-line__btn')
-    .addEventListener('click', toOrderLunch);
-    
