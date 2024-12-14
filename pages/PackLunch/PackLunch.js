@@ -4,10 +4,6 @@ import Dish from '../../scripts/dish.js';
 import selectedDishes, { dishes} from '../../scripts/selectedDishes.js';
 import { handleFilter } from '../../scripts/filter.js';
 
-function toOrderLunch() {
-    window.location.href = '/pages/OrderLunch/index.html';
-}
-
 function renderOrderLine() {
     const orderLine = document.querySelector('.order-line');
 
@@ -25,7 +21,9 @@ function renderOrderLine() {
         btn.textContent = comboMessage;
     } else {
         btn.disabled = false;
-        btn.textContent = 'Перейти к оформлению';
+        btn.innerHTML = `<a href="/pages/OrderLunch/index.html">
+        Перейти к оформлению
+        </a>`;
     }
     orderLine.classList.remove('hide');
 }
